@@ -1,0 +1,40 @@
+.header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    form {
+        .search {
+            display: flex;
+            gap: 20px;
+            button {
+                position: relative;
+                img {
+                    position: absolute;
+                    top: 12px;
+                    right: 30px;
+                }
+            }
+            input {
+                width: 492px;
+                height: 46px;
+                padding: 0 35px 0 10px;
+                background: var(--bg-input);
+                border: 1px solid #3d3d3d;
+                border-radius: 10px;
+                color: var(--text-color);
+            }
+        }
+    }
+    .changeThemeButton {
+        border: 1px solid #626161;
+        border-radius: 20px;
+        background: var(--bg-btn);
+        width: 115px;
+        height: 46px;
+        color: var(--text-color);
+        svg {
+            fill: red;
+        }
+    }
+}

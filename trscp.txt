@@ -1,0 +1,4 @@
+https://api.weatherapi.com/v1/forecast.json?key=1d47d81f0371416da6a231906251708&q=Saint-Petersburg&lang=ru
+https://api.weatherapi.com/v1/search.json?key=1d47d81f0371416da6a231906251708&q=Saint-Petersburg
+https://api.weatherapi.com/v1/alerts.json?key=1d47d81f0371416da6a231906251708&q=Saint-Petersburg
+https://api.weatherapi.com/v1/sports.json?key=1d47d81f0371416da6a231906251708&q=Liverpool

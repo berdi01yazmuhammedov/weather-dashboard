@@ -1,0 +1,53 @@
+.day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+    background: #1b1b1d;
+    border-radius: 30px;
+    padding: 13px 0 29px 0;
+    .line {
+        width: 96px;
+        height: 1px;
+        background-color: #3d3d3d;
+        display: block;
+        margin: 13px 0 30px 0;
+        img {
+            margin-bottom: 31px;
+        }
+    }
+}
+.active {
+    display: block;
+    width: 257px;
+    font-size: 20px;
+    padding: 0;
+    .title {
+        display: flex;
+        justify-content: space-between;
+        border-radius: 25px 25px 0 0;
+        padding: 14px 18px;
+        background-color: #aecadf;
+        h3 {
+            color: #0f0f11;
+        }
+    }
+    .degreeInfo {
+        background-color: #bbd7ec;
+        border-radius: 0 0 25px 25px;
+        padding: 12px 14px;
+        .degree {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .conditions {
+            }
+        }
+    }
+}

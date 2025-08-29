@@ -1,4 +1,4 @@
-https://api.weatherapi.com/v1/forecast.json?key=1d47d81f0371416da6a231906251708&q=Saint-Petersburg&lang=ru
-https://api.weatherapi.com/v1/search.json?key=1d47d81f0371416da6a231906251708&q=Saint-Petersburg
-https://api.weatherapi.com/v1/alerts.json?key=1d47d81f0371416da6a231906251708&q=Saint-Petersburg
-https://api.weatherapi.com/v1/sports.json?key=1d47d81f0371416da6a231906251708&q=Liverpool
+https://api.weatherapi.com/v1/forecast.json?key=de85bd798d4e407bbf613122252608&q=Saint-Petersburg&lang=ru
+https://api.weatherapi.com/v1/search.json?key=de85bd798d4e407bbf613122252608&q=Saint-Petersburg
+https://api.weatherapi.com/v1/alerts.json?key=de85bd798d4e407bbf613122252608&q=Saint-Petersburg
+https://api.weatherapi.com/v1/sports.json?key=de85bd798d4e407bbf613122252608&q=Liverpool

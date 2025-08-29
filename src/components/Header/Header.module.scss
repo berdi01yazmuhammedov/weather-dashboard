@@ -1,8 +1,14 @@
+.cityName {
+    padding: 0 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
 .header {
     padding: 20px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    gap: 100px;
     form {
         .search {
             display: flex;
@@ -13,6 +19,8 @@
                     position: absolute;
                     top: 12px;
                     right: 30px;
+                    width: 24px;
+                    color: red;
                 }
             }
             input {
@@ -23,6 +31,32 @@
                 border: 1px solid #3d3d3d;
                 border-radius: 10px;
                 color: var(--text-color);
+            }
+        }
+        .autocomplete {
+            position: relative;
+            width: 492px;
+            .suggestions {
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-input);
+                // border: 1px solid #3d3d3d;
+                border-radius: 10px;
+                color: var(--text-color);
+                overflow: hidden;
+                li {
+                    padding: 10px;
+                    cursor: pointer;
+                    transition: background 0.3s ease-in-out;
+                    &:hover {
+                        background: #3d3d3d;
+                    }
+                    &:not(:last-child) {
+                        border-bottom: 1px solid #3d3d3d;
+                    }
+                }
             }
         }
     }

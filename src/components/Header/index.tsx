@@ -32,13 +32,14 @@ export const Header = ({
   lastFailedQuery,
 }: HeaderProps) => {
   const [suggestions, setSuggestions] = useState<string[]>([]);
-
+  const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
   const onChangeThemeClick = () => {
     document.body.classList.toggle("dark-theme");
   };
   const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
     setIsError(false);
+     setActiveSuggestionIndex(-1);
   };
   const onSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -76,6 +77,25 @@ export const Header = ({
     setSearchValue("");
     setIsError(false);
   };
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if(!suggestions.length) return;
+
+    if(e.key === "ArrowDown"){
+      e.preventDefault();
+      setActiveSuggestionIndex((prev) => Math.min(prev + 1, suggestions.length - 1))
+    } else if (e.key === "ArrowUp"){
+      e.preventDefault();
+      setActiveSuggestionIndex((prev) => Math.max(prev - 1, 0));
+    } else if(e.key === "Enter") {
+      e.preventDefault();
+      if(activeSuggestionIndex >= 0){
+        const city = suggestions[activeSuggestionIndex];
+        onClickSuggestion(city);
+        setActiveSuggestionIndex(-1)
+      }
+    }
+  }
   return (
     <>
       <div className={styles.header}>
@@ -83,7 +103,7 @@ export const Header = ({
           <div className={styles.autocomplete}>
             <div className={styles.suggestions}>
               {suggestions.map((city, idx) => (
-                <li key={idx} onClick={() => onClickSuggestion(city)}>
+                <li className={activeSuggestionIndex === idx ? styles.activeSuggestion : ""} key={idx} onClick={() => onClickSuggestion(city)}>
                   {city}
                 </li>
               ))}
@@ -94,6 +114,7 @@ export const Header = ({
               value={searchValue}
               onChange={onSearchChange}
               type="text"
+              onKeyDown={onKeyDown}
               placeholder="Search city..."
             />
             <button type="submit">

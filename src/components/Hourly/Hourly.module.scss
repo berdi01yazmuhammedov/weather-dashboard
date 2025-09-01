@@ -4,8 +4,9 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    flex: 0 0 90px;
     .hourInfo {
-        background-color: #1b1b1d;
+        background-color: var(--bg-dayCard);
         border-radius: 20px;
         padding: 10px;
         display: flex;

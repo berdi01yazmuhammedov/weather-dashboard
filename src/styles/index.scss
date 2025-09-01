@@ -4,12 +4,16 @@
     --text-color: #fefefe;
     --bg-input: #1e1e1e;
     --bg-btn: #19191b;
+    --bg-dayCard: #1b1b1d;
+    --changeThemeBtn: white;
 }
 body.dark-theme {
     --bg-primary: #ccc;
     --text-color: #000;
     --bg-input: #ccc;
     --bg-btn: #ccc;
+    --bg-dayCard: #a8a8d6;
+    --changeThemeBtn: #000;
 }
 * {
     margin: 0;
@@ -21,6 +25,7 @@ body.dark-theme {
 body {
     background-color: var(--bg-primary);
     color: var(--text-color);
+    transition: all 0.3s ease-in-out;
 }
 li{
     list-style: none;

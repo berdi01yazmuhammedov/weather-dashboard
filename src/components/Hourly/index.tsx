@@ -7,6 +7,8 @@ interface HourlyProps {
     mode: string;
 }
 export const Hourly: React.FC<HourlyProps> = ({hour, mode}) => {
+
+    
     let value: string = '';
     if(mode === "temperature") value = `${hour.temp_c.toString().slice(0, 2)}°`;
     if(mode === "rain") value = `${hour.chance_of_rain} mm`;

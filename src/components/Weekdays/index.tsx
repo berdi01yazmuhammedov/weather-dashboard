@@ -9,13 +9,31 @@ interface WeekdaysProps {
 }
 
 export const Weekdays: React.FC<WeekdaysProps> = ({ weather }) => {
-  const [mode, setMode] = useState<"temperature" | "rain" | "wind">("temperature");
+  const [mode, setMode] = useState<"temperature" | "rain" | "wind">(
+    "temperature"
+  );
   const [activeDay, setActiveDay] = useState(0);
+
   if (!weather) return null;
+
   const forecast = weather.forecast?.forecastday ?? [];
   const activeHours = forecast[activeDay].hour;
+  const now = new Date();
+  const currentHour = now.getHours();
 
-  const hourly = activeHours.map((hour) => {
+  const activeDate = new Date(forecast[activeDay].date); // дата выбранного дня
+  const isToday = activeDate.toDateString() === now.toDateString();
+
+  const filteredHours = activeHours.filter((hourObj) => {
+    const hour = new Date(hourObj.time).getHours();
+    // если сегодня -> отсекаем прошлые часы
+    if (isToday) {
+      return hour >= currentHour;
+    }
+    // если другой день -> показываем все 24 часа
+    return true;
+  });
+  const hourly = filteredHours.map((hour) => {
     return <Hourly key={hour.time_epoch} hour={hour} mode={mode} />;
   });
   const onDayClick = (index: number) => {
@@ -45,7 +63,6 @@ export const Weekdays: React.FC<WeekdaysProps> = ({ weather }) => {
   return (
     <>
       <div className={styles.weekdays}>
-       
         <div className={styles.days}>{dayCards}</div>
         <div className={styles.hourly}>
           <div className={styles.options}>

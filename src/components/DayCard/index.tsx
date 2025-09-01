@@ -23,7 +23,7 @@ export const DayCard: React.FC<DayCardProps> = ({
   return (
     <>
       {isActive ? (
-        <div className={`${styles.day} ${styles.active}`} onClick={() => onDayClick(index)}>
+        <div className={`${styles.day} ${styles.active} ${styles.clickedDay}`} onClick={() => onDayClick(index)}>
           <div className={styles.title}>
             <h3>{displayDay}</h3>
             <h3>{current.last_updated.slice(11, 16)}</h3>

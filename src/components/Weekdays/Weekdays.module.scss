@@ -1,14 +1,11 @@
 .weekdays {
-    .variety {
-        display: flex;
-        gap: 20px;
-    }
+    
     .days {
         margin-top: 30px;
         display: flex;
         gap: 20px;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
     }
     .hourly {
         margin-top: 40px;

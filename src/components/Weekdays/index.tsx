@@ -45,11 +45,7 @@ export const Weekdays: React.FC<WeekdaysProps> = ({ weather }) => {
   return (
     <>
       <div className={styles.weekdays}>
-        <div className={styles.variety}>
-          <button>Today</button>
-          <button>Tomorrow</button>
-          <button>Next 7 days</button>
-        </div>
+       
         <div className={styles.days}>{dayCards}</div>
         <div className={styles.hourly}>
           <div className={styles.options}>

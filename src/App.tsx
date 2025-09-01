@@ -154,6 +154,8 @@ function App() {
   useEffect(() => {
     getWeather();
   }, [query]);
+  console.log(weather);
+  
   return (
     <div className="app">
       <Header

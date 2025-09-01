@@ -9,13 +9,14 @@ interface WeekdaysProps {
 }
 
 export const Weekdays: React.FC<WeekdaysProps> = ({ weather }) => {
+  const [mode, setMode] = useState<"temperature" | "rain" | "wind">("temperature");
   const [activeDay, setActiveDay] = useState(0);
   if (!weather) return null;
   const forecast = weather.forecast?.forecastday ?? [];
   const activeHours = forecast[activeDay].hour;
 
   const hourly = activeHours.map((hour) => {
-    return <Hourly key={hour.time_epoch} hour={hour} />;
+    return <Hourly key={hour.time_epoch} hour={hour} mode={mode} />;
   });
   const onDayClick = (index: number) => {
     setActiveDay(index);
@@ -52,9 +53,9 @@ export const Weekdays: React.FC<WeekdaysProps> = ({ weather }) => {
         <div className={styles.days}>{dayCards}</div>
         <div className={styles.hourly}>
           <div className={styles.options}>
-            <button>Temperatue</button>
-            <button>Chance of Rain</button>
-            <button>Wind</button>
+            <button onClick={() => setMode("temperature")}>Temperatue</button>
+            <button onClick={() => setMode("rain")}>Chance of Rain</button>
+            <button onClick={() => setMode("wind")}>Wind</button>
           </div>
           <div className={styles.hourContainer}>{hourly}</div>
         </div>

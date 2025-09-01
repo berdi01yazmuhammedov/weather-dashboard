@@ -4,6 +4,7 @@ import { Header } from "./components/Header";
 import "./styles/index.scss";
 import { Weekdays } from "./components/Weekdays";
 import { SearchError } from "./components/SearchError";
+import { Loader } from "./components/Loader";
 
 export interface WeatherResponse {
   location: Location;
@@ -130,7 +131,9 @@ function App() {
   const [isError, setIsError] = useState(false);
   const [lastFailedQuery, setLastFailedQuery] = useState("");
   const [weather, setWeather] = useState<WeatherResponse | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const getWeather = async () => {
+    setIsLoading(true);
     const url = `https://api.weatherapi.com/v1/forecast.json?key=de85bd798d4e407bbf613122252608&q=${query}&lang=en&days=7`;
     try {
       const response = await fetch(url);
@@ -144,16 +147,16 @@ function App() {
       console.log(error.message); //получаю response status 400
       setLastFailedQuery(query);
       setIsError(true);
+    } finally {
+      setIsLoading(false);
     }
   };
   useEffect(() => {
     getWeather();
   }, [query]);
-
   return (
     <div className="app">
       <Header
-      
         query={query}
         searchValue={searchValue}
         setSearchValue={setSearchValue}
@@ -163,8 +166,8 @@ function App() {
         setIsError={setIsError}
       />
       <div className="container">
+        {isLoading && <Loader />}
         {!isError && <Weekdays weather={weather} />}
-        
       </div>
     </div>
   );

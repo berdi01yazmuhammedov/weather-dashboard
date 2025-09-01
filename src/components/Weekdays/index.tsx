@@ -56,7 +56,7 @@ export const Weekdays: React.FC<WeekdaysProps> = ({ weather }) => {
             <button>Chance of Rain</button>
             <button>Wind</button>
           </div>
-          {hourly}
+          <div className={styles.hourContainer}>{hourly}</div>
         </div>
       </div>
     </>

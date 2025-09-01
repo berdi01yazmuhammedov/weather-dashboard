@@ -20,6 +20,10 @@
             border-radius: 10px;
             display: flex;
             gap: 20px;
+            overflow: scroll;
+            &::-webkit-scrollbar {
+                width: 0;
+            }
         }
     }
 }

@@ -127,7 +127,9 @@ interface Condition {
 }
 function App() {
   const [searchValue, setSearchValue] = useState("");
-  const [query, setQuery] = useState("Saint-Petersburg");
+  const [query, setQuery] = useState(() => {
+    return localStorage.getItem("lastCity") || "Saint-Petersburg";
+  })
   const [isError, setIsError] = useState(false);
   const [lastFailedQuery, setLastFailedQuery] = useState("");
   const [weather, setWeather] = useState<WeatherResponse | null>(null);
@@ -142,6 +144,7 @@ function App() {
       }
       const data = await response.json();
       setWeather(data);
+      localStorage.setItem("lastCity", query);
       setIsError(false);
     } catch (error: any) {
       console.log(error.message); //получаю response status 400
@@ -154,7 +157,6 @@ function App() {
   useEffect(() => {
     getWeather();
   }, [query]);
-  console.log(weather);
   
   return (
     <div className="app">

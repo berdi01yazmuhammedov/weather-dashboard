@@ -23,4 +23,4 @@ The app displays current and the next 2 days' forecast. It also:
 
 
 ## Live Demo
-[See the demo](https://google.com);
+[See the demo](https://weather-dashboard-nine-cyan.vercel.app/);

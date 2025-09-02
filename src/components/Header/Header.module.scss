@@ -7,12 +7,14 @@
     padding: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 100px;
+    margin: 0 auto;
+    justify-content: space-between;
+    max-width: 1200px;
     form {
         .search {
             display: flex;
             gap: 20px;
+
             button {
                 position: relative;
                 img {
@@ -31,11 +33,17 @@
                 border: 1px solid #3d3d3d;
                 border-radius: 10px;
                 color: var(--text-color);
+                @media screen and (max-width: 768px) {
+                    width: 300px;
+                }
+                @media screen and (max-width: 480px) {
+                    width: 200px;
+                }
             }
         }
         .autocomplete {
             position: relative;
-            width: 492px;
+            max-width: 492px;
             .suggestions {
                 position: absolute;
                 top: 50px;
@@ -64,10 +72,9 @@
         border: 1px solid #626161;
         border-radius: 20px;
         background: var(--bg-btn);
-        width: 115px;
-        height: 46px;
+        padding: 10px 20px;
         color: var(--text-color);
-        svg g path{
+        svg g path {
             fill: var(--changeThemeBtn);
         }
     }
